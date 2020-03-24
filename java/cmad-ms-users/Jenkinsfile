@@ -47,13 +47,13 @@ agent{
               }
           }
       }
-   stage('docker-package'){
+   stage("docker-package"){
       agent any
       steps{
-        echo 'Packaging users app with docker'
+        echo "Packaging users app with docker"
         script{
-          docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-          def usersImage = docker.build("coderteejay/users:v${env.BUILD_ID}", “./java/cmad-ms-users”)
+          docker.withRegistry("https://index.docker.io/v1/", "dockerlogin") {
+          def usersImage = docker.build("coderteejay/users:v${env.BUILD_ID}", "./java/cmad-ms-users")
               usersImage.push()
               usersImage.push("latest")
           }
