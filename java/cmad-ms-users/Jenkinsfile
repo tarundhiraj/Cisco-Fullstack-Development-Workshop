@@ -25,7 +25,7 @@ agent{
           steps{
               dir('java/cmad-ms-users/'){
                 sh 'mvn package -DskipTests'
-                archiveArtifacts artifacts: 'java/cmad-ms-users/target/*.jar’, fingerprint: true
+                archiveArtifacts artifacts: 'java/cmad-ms-users/target/*.jar', fingerprint: true
               }
           }
       }
